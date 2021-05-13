@@ -3,12 +3,7 @@ const SteamTotp = require('steam-totp');
 const config = require('./config/config');
 
 const client = new SteamUser();
-const community = new SteamCommunity();
-const manager = new TradeOfferManager({
-	steam: client,
-	community: community,
-	language: 'en'
-});
+
 
 const logInOptions = {
 	accountName: config.accountName,
@@ -19,14 +14,25 @@ const logInOptions = {
 client.logOn(logInOptions);
 
 client.on('loggedOn', () => {
-	console.log('logged on');
-	
-	client.setPersona(SteamUser.Steam.EPersonaState.Online);
+	console.log('Logged on to Steam');
+	client.setPersona(SteamUser.EPersonaState.Online);
 	client.gamesPlayed(440);
+	console.log("Set game to TF2")
+	sendMessage();
+	//client.chatMessage("76561199118546232", "!help")
+	
 });
 
-client.on('webSession', (sid, cookies) => {
-	manager.setCookies(cookies);
-	community.setCookies(cookies);
-	community.startConfirmationChecker(20000, config.identitySecret);
-});
+
+
+function sendMessage(){
+	bot_array = ["76561198845896241", "76561199118546232"];
+
+	client.on('friendMessage', function(steamID, message){
+		console.log("Message from "+steamID.getSteamID64()+": " + message);
+	})
+
+	for(let bot of bot_array){
+		client.chatMessage(bot, "!refreshlist")
+	}
+}
