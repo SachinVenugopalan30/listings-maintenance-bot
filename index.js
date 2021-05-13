@@ -27,12 +27,17 @@ client.on('loggedOn', () => {
 
 function sendMessage(){
 	bot_array = ["76561198845896241", "76561199118546232"];
-
+	var msg_ctr = 0
 	client.on('friendMessage', function(steamID, message){
 		console.log("Message from "+steamID.getSteamID64()+": " + message);
-	})
+		if(++msg_ctr == 4){
+			console.log("Exiting the program...")
+			process.exit(0)
+		}
+		})
 
 	for(let bot of bot_array){
 		client.chatMessage(bot, "!refreshlist")
 	}
 }
+
