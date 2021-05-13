@@ -1,0 +1,23 @@
+{
+  "name": "messagebot",
+  "version": "1.0.0",
+  "description": "A simple bot to send messages to update listings of your trade bots on backpack.tf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SachinVenugopalan30/listings-maintenance-bot.git"
+  },
+  "author": "Derpy/Sachin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SachinVenugopalan30/listings-maintenance-bot/issues"
+  },
+  "homepage": "https://github.com/SachinVenugopalan30/listings-maintenance-bot#readme",
+  "dependencies": {
+    "steam-user": "^4.19.7",
+    "steam-totp": "^2.1.1"
+  }
+}
