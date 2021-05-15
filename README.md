@@ -1,4 +1,6 @@
-# The purpose of this bot is to send !refreshlist to your trade bots to ensure that whatever items that are unlisted get listed.
+# The purpose of this bot is to send a message to keep listings updated.
+- Sometimes, my trade bots fail to list certain items, or it lists them for a while before unlisting them.
+- I created this script to ensure that all items contained in the bots' inventories are listed and remain listed.
 
 ## Requirements
 - You will need a Steam account that is **NOT** one of your trading bots, unless it is not in use. You can use your own Steam account, however you must have your shared secret.
